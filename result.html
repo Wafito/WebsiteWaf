@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antwort 💘</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    
+    <div class="flower" id="flower">
+         <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+
+    <h2 id="message"></h2>
+    <a href="index.html" class="back-btn">Zurück zur Frage 💞</a>
+  </div>
+
+  <script>
+    // Text aus URL-Parameter lesen
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("answer");
+    const message = document.getElementById("message");
+    const flower = document.getElementById("flower");
+
+    if (type === "yes1") {
+      message.innerHTML = "Ich freueee michhh 😍♥️🌹";
+      flower.style.display = "block";
+    } else if (type === "yes2") {
+      message.innerHTML = "Ich hätte mir etwas mehr Enthusiasmus gewünscht, aber ich freue mich trotzdem 😄💖🌷";
+      flower.style.display = "none";
+    } else {
+      message.innerHTML = "Unbekannte Antwort 💭";
+    }
+  </script>
+</body>
+</html>

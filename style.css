@@ -1,0 +1,159 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top, #ffe6eb, #ffccd5, #ffc2d1);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 30px 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 40px rgba(255, 100, 150, 0.4);
+  backdrop-filter: blur(10px);
+  width: 90%;
+  max-width: 500px;
+}
+
+h1 {
+  color: #b3005e;
+  text-shadow: 0 0 10px rgba(255, 100, 150, 0.5);
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+button {
+  background: linear-gradient(145deg, #ff6699, #ff3366);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 50, 100, 0.4);
+  min-width: 80px;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255, 100, 150, 0.7);
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ff6699, #ff3366);
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 100, 150, 0.7);
+}
+
+#message {
+  margin-top: 50px;
+  font-size: 1.2rem;
+  color: #ff007f;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 100, 150, 0.5);
+}
+
+.flower {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px auto;
+  display: none;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 0, 100, 0.4));
+  opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.flower span {
+  position: absolute;
+  right: 70%;
+  left: 30%;
+  width: 40px;
+  height: 60px;
+  background: radial-gradient(
+    circle at 50% 35%,
+    rgba(223, 93, 195, 0.976) 0%,
+    rgba(255, 0, 255, 0.836) 70%,
+    rgb(255, 0, 0) 100%
+  );
+  border-radius: 50% 50% 40% 40%;
+  transform-origin: bottom center;
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  animation: petalGlow 2.5s ease-in-out infinite alternate;
+}
+
+.flower span:nth-child(1) { transform: rotate(0deg) translateY(-45%); }
+.flower span:nth-child(2) { transform: rotate(45deg) translateY(-45%); }
+.flower span:nth-child(3) { transform: rotate(90deg) translateY(-45%); }
+.flower span:nth-child(4) { transform: rotate(135deg) translateY(-45%); }
+.flower span:nth-child(5) { transform: rotate(180deg) translateY(-45%); }
+.flower span:nth-child(6) { transform: rotate(225deg) translateY(-45%); }
+.flower span:nth-child(7) { transform: rotate(270deg) translateY(-45%); }
+.flower span:nth-child(8) { transform: rotate(315deg) translateY(-45%); }
+
+.flower::after {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 45px;
+  height: 45px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #eaff00 0%, #ffaa00 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(223, 4, 73, 0.5);
+  animation: corePulse 3s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes petalGlow {
+  from { opacity: 0.8; filter: drop-shadow(0 0 10px rgba(255, 100, 150, 0.4)); }
+  to { opacity: 1; filter: drop-shadow(0 0 20px rgba(255, 100, 150, 0.6)); }
+}
+
+@keyframes corePulse {
+  from { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  to { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+button.move {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+/* Mobile Anpassungen */
+@media (max-width: 240px) {
+  h1 { font-size: 1.2rem; }
+  button { font-size: 0.9rem; padding: 8px 15px; min-width: 70px; }
+}
