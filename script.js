@@ -12,11 +12,10 @@ yes2.addEventListener("click", () => {
 
 // Funktion zum zufälligen Bewegen des Buttons
 function moveButton() {
-  const btnWidth = no.offsetWidth - 100;
-  const btnHeight = no.offsetHeight - 100;
+ 
 
-  const x = Math.random() * (window.innerWidth - btnWidth - 700);
-  const y = Math.random() * (window.innerHeight - btnHeight - 700);
+  const x = 100 + Math.random() * (250-100);
+  const y = 100 + Math.random() * (250-100);
 
   no.style.position = "absolute";
   no.style.left = `${x}px`;
