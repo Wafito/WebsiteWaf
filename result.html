@@ -15,39 +15,45 @@
 
     <h2 id="message"></h2>
 
-    
-    <!-- Whatsapp Submit Button -->
-    <a id="whatsappBtn" class="back-btn" target="_blank">Antwort an Wafi per WhatsApp 💬</a>
+    <!-- WhatsApp Button (anfangs versteckt) -->
+    <a id="whatsappBtn" href="#" class="whatsapp-btn" style="display:none;">Auf WhatsApp senden 💬</a>
 
-    <a href="index.html" class="back-btn">Zurück zur Frage 💞</a>
+    <!-- Return Button -->
+    <a href="index.html" class="back-btn" id="returnBtn">Zurück zur Frage 💞</a>
   </div>
 
   <script>
-    // Antwort aus URL lesen
     const params = new URLSearchParams(window.location.search);
     const type = params.get("answer");
     const message = document.getElementById("message");
     const flower = document.getElementById("flower");
     const whatsappBtn = document.getElementById("whatsappBtn");
+    const returnBtn = document.getElementById("returnBtn");
 
     let answerText = "";
 
     if (type === "yes1") {
       message.innerHTML = "Ich freueee michhh 😍♥️🌹";
       flower.style.display = "block";
+      whatsappBtn.style.display = "inline-block";       // nur bei yes1 anzeigen
       answerText = "Wohoooo auf jeden Fall 💕";
+
     } else if (type === "yes2") {
-      message.innerHTML = "Ich hätte mir etwas mehr Enthusiasmus gewünscht, aber ich freue mich trotzdem 😄💖🌷";
+      message.innerHTML = "Ich hätte mir etwas mehr Enthusiasmus gewünscht, versuch noch mal! 😄";
       flower.style.display = "none";
+      whatsappBtn.style.display = "none";               // kein WhatsApp Button
       answerText = "JAAA 💖";
+
     } else {
       message.innerHTML = "Unbekannte Antwort 💭";
+      flower.style.display = "none";
+      whatsappBtn.style.display = "none";               // sicherheitshalber
       answerText = "Unbekannte Antwort 💭";
     }
 
     // WhatsApp-Link vorbereiten
-    const phoneNumber = "4917632371605"; // ← Meine Nummer (ohne + oder Leerzeichen)
-    const text = encodeURIComponent(`Die Antwort auf deine süße Frage ist: "${answerText}" 💌`);
+    const phoneNumber = "4917632371605"; 
+    const text = encodeURIComponent(`Ich habe auf deine Frage geantwortet: "${answerText}" 💌`);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
 
     // Button-Link setzen
